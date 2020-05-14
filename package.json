@@ -1,0 +1,24 @@
+{
+  "name": "vl-utils",
+  "version": "1.0.0",
+  "description": "\"# Vl Utils\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OseiasTech/vl-utils.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OseiasTech/vl-utils/issues"
+  },
+  "homepage": "https://github.com/OseiasTech/vl-utils#readme",
+  "devDependencies": {
+    "typescript": "^3.9.2"
+  }
+}
