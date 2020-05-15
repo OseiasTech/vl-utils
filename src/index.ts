@@ -1,1 +1,1 @@
-export const lower = (text: string) => text.toLowerCase()
+export const lower = (text: string) => text.toLowerCase();
