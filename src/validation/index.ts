@@ -4,7 +4,7 @@
  * @name isValidEmail
  * @version 0.1.0
  * @param {string} email The email you want to validate.
- * @returns {boolean} Returns `true` if is a valid email and `false` if it isn't.
+ * @returns {boolean} Returns `true` if is a valid email or `false` if it isn't.
  */
  
 export const isValidEmail = (email: string) : boolean => {
@@ -21,6 +21,15 @@ export const isValidEmail = (email: string) : boolean => {
   }
 }
 
+
+/**
+ *  Validate if the given string have the shape of a mobile phone number.
+ * @name isValidMobilePhone
+ * @version 0.1.0
+ * @param {string} phone The phone you want to validate.
+ * @param {boolean} validateDDD A boolean flag that indicates if you are usign ddd on the provided number
+ * @returns {boolean} Returns `true` if is a valid mobile phone or `false` if it isn't.
+ */
 export const isValidMobilePhone = (phone : string, validateDDD: boolean = false) : boolean => {
   const clean = phone.replace(/\D/, "")
 
