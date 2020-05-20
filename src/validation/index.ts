@@ -202,3 +202,79 @@ export const isValidName = (name: string, single: boolean = true): boolean => {
   }
 }
 
+/**
+ *  Check if the user password is valid or not.
+ * **For a better validation, use this function with another validation, like if the email or name and the password are the same**
+ * @name isValidPassword
+ * @version 0.1.0
+ * @param {string} password The password you want to validate.
+ * @param {number} minLength A number that indicates the minimal length of the given password. Default is `8`.
+ * @param {number} maxLength A number that indicates the maximum length of the given password. Default is `25`.
+ * @param {boolean} specialChars A boolean param that indicates if the password can have special characters like -_#.
+ * @returns {boolean} Returns `true` if the password is valid or `false` if it isn't.
+ */
+export const isValidPassword = (password: string, minLength: number = 8, maxLength: number = 25, specialChars: boolean = true): boolean => {
+  if(!password){
+    return false
+  }
+
+  if(password.length < minLength || password.length > maxLength){
+    return false
+  }
+
+  let validation: RegExp
+  
+  if(specialChars){
+    validation = /^([a-zA-Z0-9\W_]+)$/
+  } else {
+    validation = /^([\w]+)$/
+  }
+
+  const test = validation.test(password)
+
+  if(test){
+    return true
+  } else {
+    return false
+  }
+}
+
+/**
+ *  Check if the user is under age.
+ * **Date should be a string matching this format dd/mm/yyyy**
+ * @name isUnderAge
+ * @version 0.1.0
+ * @param {string} birthDate The date you want to check in the `dd/mm/yyyy` format.
+ * @returns {boolean} Returns `true` if the user is under age or `false` if it isn't.
+ */
+export const isUnderAge = (birthDate: string): boolean => {
+  const format: RegExp = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/
+  
+  if(!birthDate || !format.test(birthDate)){
+    return false
+  }
+
+  const today = new Date().getFullYear()
+  const splitDate: string[] = birthDate.split("/")
+  const day = Number(splitDate[0])
+  const month = Number(splitDate[1])
+  const year = Number(splitDate[2])
+  
+  if(day > 31 || month > 12) {
+    return false
+  }
+
+  if(today - year < 18) { 
+    return true
+  } else {
+    return false
+  }
+}
+
+export const isValidCNPJ = (cnpj: string): boolean => {
+
+}
+
+export const isValidCPF = (cpf: string): boolean => {
+  
+}
